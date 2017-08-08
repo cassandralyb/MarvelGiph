@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta charset="UTF-8">
+	<title></title>
+<!-- linke to css style sheet!-->
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<!-- bootstrap link !-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Marvel</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+    <div class="col-sm-3 col-md-3">
+        <form class="navbar-form" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="q">
+            <div class="input-group-btn">
+                <button id="mag" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
+    </div>
+    
+  </div><!-- /.navbar-collapse -->
+</nav>
+<div class="row">
+  <!-- Where we will display the marvel characters info-->
+  <div id="panel1" class="col-sm-4 col-md-offset-1">-----------marvel char-------------------</div>
+
+  <div  class="col-md-1"></div>
+  <!-- where we will show the gifs related to the searched for marvel character --> 
+  <div id="showGifs" class="col-md-4">-------------------gifs-----------------------</div>
+</div>
+
+
+</body>
+</html>
