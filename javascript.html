@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MarvelGiphy</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+  <div id="buttons">
+    <button user-search="hulk">
+      Hulk
+    </button>
+    <button user-search="spider-man">
+     Spider-Man
+    </button>
+
+  </div>
+
+<div class="col-md-6">
+ 	<div id="container">
+  		<div id="gifs-appear-here">
+ 		</div>
+ 	</div>
+</div>
+
+
+<div class="col-md-9">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+  			<div id="marvel-info-here">
+		</div></div>
+	</div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+/* this is the search button function*/
+    $("button").on("click", function() {
+
+/* this is the person searched by the user when the user clickes the "user-search" button */
+      var person = $(this).attr("user-search");
+
+/* this is the giphyURL, which captures the person searched by the user */
+      var giphyURL = "http://api.giphy.com/v1/gifs/search?q=" +
+        person + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+/* this is the AJAX call for the giphyURL */
+      $.ajax({
+          url: giphyURL,
+          method: "GET"
+        })
+        .done(function(response) {
+          var results = response.data;
+
+          for (var i = 0; i < results.length; i++) {
+            var gifDiv = $("<div class='item'>");
+
+            var rating = results[i].rating;
+
+            var p = $("<p>").text("Rating: " + rating);
+
+            var personImage = $("<img>");
+            personImage.attr("src", results[i].images.fixed_height.url);
+
+            gifDiv.prepend(p);
+            gifDiv.prepend(personImage);
+
+            $("#gifs-appear-here").prepend(gifDiv);
+          }
+        });
+
+/* this is the person searched by the user when the user clickes the "user-search" button */
+      var person = $(this).attr("user-search");
+
+/* this is the marvelURL, which captures the person searched by the user */
+      var marvelURL = "http://gateway.marvel.com:443/v1/public/characters?name=" +
+        person + "&apikey=7b3c258aeabb823fef48eaa48dbfbbdc";
+
+ /* this is the AJAX call for the marvelURL */
+      $.ajax({
+          url: marvelURL,
+          method: "GET"
+         }).done(function(response) {
+		      console.log(response);
+		    });
+
+   });
+
+ </script>
